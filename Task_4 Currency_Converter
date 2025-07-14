@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+ class CurrencyConverter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String from = sc.next();  // e.g., "INR"
+        String to = sc.next();    // e.g., "USD"
+        double amount = sc.nextDouble();
+
+        double rate;
+
+        // Simulate some common exchange rates
+        if (from.equalsIgnoreCase("INR") && to.equalsIgnoreCase("USD")) {
+            rate = 0.012;
+        } else if (from.equalsIgnoreCase("USD") && to.equalsIgnoreCase("INR")) {
+            rate = 83.0;
+        } else if (from.equalsIgnoreCase("EUR") && to.equalsIgnoreCase("INR")) {
+            rate = 90.0;
+        } else if (from.equalsIgnoreCase("INR") && to.equalsIgnoreCase("EUR")) {
+            rate = 0.011;
+        } else {
+            System.out.println("Exchange rate not available.");
+            return;
+        }
+
+        double converted = amount * rate;
+
+        System.out.printf("Converted Amount: %.2f %s\n", converted, to.toUpperCase());
+
+        sc.close();
+    }
+}
